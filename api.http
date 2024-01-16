@@ -1,0 +1,32 @@
+GET http://localhost:3000/api/test
+
+### POST
+POST http://localhost:3000/api
+Content-Type: application/json
+
+{
+    "url": "facebook.com"
+}
+
+-- creacion de la base de datos
+DROP DATABASE IF EXISTS dbshorturl;
+CREATE DATABASE dbshorturl;
+
+-- usar
+USE dbshorturl;
+
+-- crear la tabla links
+CREATE TABLE link (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    url VARCHAR(2000) NOT NULL,
+    shortUrl VARCHAR(5) NOT NULL
+);
+
+-- insertar en la tabla
+INSERT INTO link (url, shortUrl) VALUES
+('agustingonzalorena.vercel.app', 'agusp'),
+('www.google.com', 'gogle'),
+('rappazzini-portfolio.vercel.app', 'rappa');
+
+
+SELECT * FROM link;
