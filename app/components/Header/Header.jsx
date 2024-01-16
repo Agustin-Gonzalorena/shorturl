@@ -1,8 +1,13 @@
 import { logoFont } from "../../fonts";
+import styles from "./Header.module.css";
 const Header = () => {
   return (
-    <header className="bg-white text-red-500 h-20">
-      <h1 className={`${logoFont.className} bg-black text-3xl`}>ShortURL</h1>
+    <header className={` h-auto p-6 pl-10`}>
+      <h1
+        className={`${logoFont.className} , ${styles.title} , text-5xl text-white`}
+      >
+        Short<strong className="text-[#FF4100]">URL</strong>
+      </h1>
     </header>
   );
 };
