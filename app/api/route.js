@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { insert } from "../services";
+import { insert } from "../db_mySql";
 import { redirect } from "next/navigation";
 
 export async function GET(req) {
@@ -13,6 +13,6 @@ export async function POST(req) {
   if (url.startsWith("http://") || url.startsWith("https://")) {
     url = url.replace(/^https?:\/\//, "");
   }
-  const result = await insert({ url: url });
+  const result = await insert({ url: url.toLowerCase() });
   return NextResponse.json(result);
 }

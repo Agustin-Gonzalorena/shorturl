@@ -13,34 +13,14 @@
   width: 100%;
   z-index: -1;
 }
-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-button {
-  border: none;
-  border-radius: 0px;
-  font-size: 14px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  -webkit-transition: ease-out 0.4s;
-  -moz-transition: ease-out 0.4s;
-  transition: ease-out 0.5s;
-}
-
-button:hover {
-  box-shadow: inset 400px 0 0 0 #000000;
-  border: none;
-}
-form {
-  box-shadow: 0 4px 8px #000;
-  border-radius: 20px;
-}
-input:focus {
-  outline: none;
+p {
+  text-wrap: balance;
 }
 @media screen and (max-width: 768px) {
   .contain-curve {
     height: 45vw;
+  }
+  p {
+    text-align: start;
   }
 }

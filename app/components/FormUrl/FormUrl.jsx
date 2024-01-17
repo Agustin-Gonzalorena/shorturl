@@ -1,11 +1,10 @@
 "use client";
 import React, { useState } from "react";
+import styles from "./FormUrl.module.css";
 import { PiWarningCircleBold } from "react-icons/pi";
-import { LuLink } from "react-icons/lu";
 
-const FormUrl = () => {
+const FormUrl = ({ setInfo }) => {
   const [urlSend, setUrlSend] = useState("");
-  const [info, setInfo] = useState([]);
   const [urlAccept, setUrlAccept] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(false);
 
@@ -42,6 +41,7 @@ const FormUrl = () => {
       await response.json().then((data) => {
         setInfo(data);
         setBtnDisabled(false);
+        setUrlSend("");
       });
     } catch (error) {
       console.log(error);
@@ -49,39 +49,35 @@ const FormUrl = () => {
   };
   return (
     <>
-      {info != [] ? (
-        <div>
-          <p>{info.url}</p>
-          <p>{info.shortUrl}</p>
-        </div>
-      ) : (
-        <div></div>
-      )}
-      <form action="POST" onSubmit={handleSubmit} className=" w-full h-14 flex">
+      <form
+        action="POST"
+        onSubmit={handleSubmit}
+        className={`${styles.form} w-full h-14 flex`}
+      >
         <input
           type="text"
           ref={(inputRef) => inputRef && inputRef.focus()}
           name="urlSend"
           value={urlSend}
           onChange={(e) => setUrlSend(e.target.value)}
-          className="bg-[#0A7DC8] w-2/3 h-full rounded-l-2xl text-l md:text-xl text-white font-medium pl-4"
+          className={`${styles.input} bg-[#0A7DC8] w-2/3 h-full rounded-l-2xl text-l md:text-xl text-white font-medium pl-4`}
           autoComplete="off"
           placeholder="Ingrese su enlace largo aqui"
         />
         {btnDisabled ? (
           <button
-            className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl hover:text-white"
+            className={`${styles.btn} bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl hover:text-white`}
             type="Submit"
             disabled
           >
-            Cortar <LuLink />
+            Cortar
           </button>
         ) : (
           <button
-            className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl hover:text-white"
+            className={`${styles.btn} bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl hover:text-white`}
             type="Submit"
           >
-            Cortar
+            Cortar URL
           </button>
         )}
       </form>

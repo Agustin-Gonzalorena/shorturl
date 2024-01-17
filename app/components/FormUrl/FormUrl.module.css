@@ -1,0 +1,30 @@
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.btn:disabled:hover {
+  box-shadow: none;
+}
+.btn {
+  border: none;
+  letter-spacing: 1px;
+  cursor: pointer;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.5s;
+}
+
+.btn:hover {
+  box-shadow: inset 400px 0 0 0 #000000;
+  border: none;
+}
+.form {
+  box-shadow: 0 4px 8px #000;
+  border-radius: 20px;
+}
+.input {
+  background-color: #0a7dc8;
+}
+.input:focus {
+  outline: none;
+}
