@@ -3,14 +3,14 @@ import mysql from "mysql2/promise";
 import { cryptoRandomStringAsync } from "crypto-random-string";
 import "dotenv/config";
 
-const DEFAULT_CONFIG = {
+/* const DEFAULT_CONFIG = {
   host: "localhost",
   user: "root",
   port: 3306,
   password: "poiu",
   database: "dbshorturl",
-};
-const connectionString = process.env.DATABASE_URL ?? DEFAULT_CONFIG;
+}; */
+const connectionString = process.env.DATABASE_URL;
 
 const connection = await mysql.createConnection(connectionString);
 
