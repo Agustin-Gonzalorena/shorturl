@@ -5,6 +5,7 @@ const FormUrl = () => {
   const [urlSend, setUrlSend] = useState("");
   const [info, setInfo] = useState([]);
   const [urlAccept, setUrlAccept] = useState("");
+  const [btnDisabled, setBtnDisabled] = useState(false);
 
   const validarURL = (url) => {
     const pattern = new RegExp(
@@ -23,7 +24,11 @@ const FormUrl = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!validarURL(urlSend)) return;
+    setBtnDisabled(true);
+    if (!validarURL(urlSend)) {
+      setBtnDisabled(false);
+      return;
+    }
     try {
       const response = await fetch("/api", {
         method: "POST",
@@ -32,7 +37,10 @@ const FormUrl = () => {
         },
         body: JSON.stringify({ url: urlSend }),
       });
-      await response.json().then((data) => setInfo(data));
+      await response.json().then((data) => {
+        setInfo(data);
+        setBtnDisabled(false);
+      });
     } catch (error) {
       console.log(error);
     }
@@ -57,12 +65,22 @@ const FormUrl = () => {
           autoComplete="off"
           placeholder="Ingrese su enlace largo aqui"
         />
-        <button
-          className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl  hover:border-2 hover:border-solid hover:border-opacity-100 hover:border-black  hover:text-white"
-          type="Submit"
-        >
-          Cortar
-        </button>
+        {btnDisabled ? (
+          <button
+            className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl  hover:border-2 hover:border-solid hover:border-opacity-100 hover:border-black  hover:text-white"
+            type="Submit"
+            disabled
+          >
+            Cortar
+          </button>
+        ) : (
+          <button
+            className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl  hover:border-2 hover:border-solid hover:border-opacity-100 hover:border-black  hover:text-white"
+            type="Submit"
+          >
+            Cortar
+          </button>
+        )}
       </form>
       {urlAccept != null ? (
         <p className="h-12"></p>

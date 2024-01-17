@@ -8,9 +8,14 @@
   background-image: url(../public/curve.svg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-y: -4vw;
   height: 18vw;
   width: 100%;
   z-index: -1;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 @media screen and (max-width: 768px) {
   .contain-curve {
