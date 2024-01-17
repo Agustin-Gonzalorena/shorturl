@@ -58,16 +58,16 @@ const FormUrl = () => {
           placeholder="Ingrese su enlace largo aqui"
         />
         <button
-          className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl"
+          className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl  hover:border-2 hover:border-solid hover:border-opacity-100 hover:border-black  hover:text-white"
           type="Submit"
         >
           Cortar
         </button>
       </form>
       {urlAccept != null ? (
-        ""
+        <p className="h-12"></p>
       ) : (
-        <p className="text-red-600 text-sm">URL inválida</p>
+        <p className="text-red-600 text-sm h-12">URL inválida</p>
       )}
     </>
   );
