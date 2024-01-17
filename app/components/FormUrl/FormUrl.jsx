@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import { PiWarningCircleBold } from "react-icons/pi";
+import { LuLink } from "react-icons/lu";
 
 const FormUrl = () => {
   const [urlSend, setUrlSend] = useState("");
@@ -58,6 +60,7 @@ const FormUrl = () => {
       <form action="POST" onSubmit={handleSubmit} className=" w-full h-14 flex">
         <input
           type="text"
+          ref={(inputRef) => inputRef && inputRef.focus()}
           name="urlSend"
           value={urlSend}
           onChange={(e) => setUrlSend(e.target.value)}
@@ -67,15 +70,15 @@ const FormUrl = () => {
         />
         {btnDisabled ? (
           <button
-            className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl  hover:border-2 hover:border-solid hover:border-opacity-100 hover:border-black  hover:text-white"
+            className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl hover:text-white"
             type="Submit"
             disabled
           >
-            Cortar
+            Cortar <LuLink />
           </button>
         ) : (
           <button
-            className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl  hover:border-2 hover:border-solid hover:border-opacity-100 hover:border-black  hover:text-white"
+            className="bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl hover:text-white"
             type="Submit"
           >
             Cortar
@@ -85,7 +88,10 @@ const FormUrl = () => {
       {urlAccept != null ? (
         <p className="h-12"></p>
       ) : (
-        <p className="text-red-600 text-sm h-12">URL inválida</p>
+        <p className="text-red-600 text-sm h-12 flex items-center gap-1">
+          <PiWarningCircleBold />
+          URL inválida
+        </p>
       )}
     </>
   );

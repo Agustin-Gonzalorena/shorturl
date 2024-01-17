@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { FaGithubAlt } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -23,15 +24,16 @@ const Footer = () => {
       </div>
       <div className="flex justify-center text-sm pt-3 min-w-full gap-6 md:gap-12 flex-col items-center md:flex-row">
         <p className="md:w-[50%] text-right">copyright ©2024 shortUrl</p>
-        <p className="md:w-[50%]">
+        <p className="md:w-[50%] flex gap-1">
           Creado por{" "}
           <a
             href="https://github.com/Agustin-Gonzalorena"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold hover:text-white"
+            className="font-bold hover:text-white flex items-center gap-1"
           >
             Agustin Gonzalorena
+            <FaGithubAlt />
           </a>
         </p>
       </div>
