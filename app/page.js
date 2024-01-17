@@ -16,7 +16,7 @@ export default function Home() {
         className={` ${textFont.className} ,bg-slate-500 min-w-wh min-h-screen flex flex-col justify-start items-center pt-[7%] font-extrabold`}
       >
         <h1 className="text-4xl md:text-6xl">Acortador de link</h1>
-        <div className="border-2 min-h-56 w-full md:w-2/4 flex items-center justify-center p-2 flex-col">
+        <div className=" min-h-56 w-full md:w-2/4 flex items-center justify-center p-2 flex-col">
           <FormUrl />
         </div>
       </main>
