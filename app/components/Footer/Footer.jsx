@@ -1,15 +1,12 @@
+import Image from "next/image";
 import React from "react";
 
 const Footer = () => {
   return (
     <footer className="bg-[#0A7DC8] min-h-24 p-8 box-content flex flex-col items-center text-gray">
-      <div className="flex justify-center">
-        <a href="/">
-          <img
-            src="../../favicon.ico"
-            alt=""
-            className="h-14 bg-gray-700 rounded-full p-1"
-          />
+      <div className="flex justify-center ">
+        <a href="/" className="h-14 w-14 bg-gray-700 rounded-full relative">
+          <Image src="/favicon.ico" alt="" fill={true} className="p-1" />
         </a>
       </div>
       <div className="text-center mt-5 mb-5 pl-[15%] pr-[15%]">

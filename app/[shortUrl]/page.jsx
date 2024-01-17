@@ -6,7 +6,10 @@ async function page({ params }) {
   const result = await redirectUrl(shortUrl);
   if (!result) {
     return (
-      <div>Lo lamento la direccion "shorturl.ar/{shortUrl}" no existe</div>
+      <div>
+        Lo lamento la direccion <strong>shorturl.ar/{shortUrl}</strong> no
+        existe
+      </div>
     );
   }
 }
