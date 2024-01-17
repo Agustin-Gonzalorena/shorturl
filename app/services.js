@@ -1,15 +1,18 @@
 import { redirect } from "next/navigation";
 import mysql from "mysql2/promise";
 import { cryptoRandomStringAsync } from "crypto-random-string";
+import "dotenv/config";
 
-const config = {
+const DEFAULT_CONFIG = {
   host: "localhost",
   user: "root",
   port: 3306,
   password: "poiu",
   database: "dbshorturl",
 };
-const connection = await mysql.createConnection(config);
+const connectionString = process.env.DATABASE_URL ?? DEFAULT_CONFIG;
+
+const connection = await mysql.createConnection(connectionString);
 
 export async function redirectUrl(shorturl) {
   try {
