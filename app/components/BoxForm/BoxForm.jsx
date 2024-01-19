@@ -9,6 +9,7 @@ const BoxForm = () => {
   const [info, setInfo] = useState([]);
   const [urlshort, setUrlshort] = useState("");
   const [texto, setTexto] = useState("");
+  const [dato, setDato] = useState([]);
 
   const inputRef = useRef(null);
 
@@ -16,10 +17,36 @@ const BoxForm = () => {
     // Selecciona todo el contenido del campo de entrada
     inputRef.current.setSelectionRange(0, urlshort.length);
   };
-  console.log(info);
+
   useEffect(() => {
+    if (info.length == 0) {
+      return;
+    }
+    let prov = [...dato];
+    prov.push({ corta: urlshort, larga: info.url });
+    //let prov2 =  [{ corta: urlshort, larga: info.url }];
+    setDato(prov);
+    localStorage.setItem("misDatos", JSON.stringify(prov));
+  }, [urlshort]);
+
+  useEffect(() => {
+    let datos = JSON.parse(localStorage.getItem("misDatos"));
+    if (datos == null) {
+      return;
+    }
+    if (datos.length >= 5) {
+      datos = datos.slice(1);
+      localStorage.setItem("misDatos", JSON.stringify(datos));
+    }
+    setDato(datos);
+  }, [urlshort]);
+  useEffect(() => {
+    if (info.length == 0) {
+      return;
+    }
     setUrlshort("shorturl.ar/" + info.shortUrl);
   }, [info]);
+
   return (
     <>
       <div className=" min-h-40 w-full md:w-2/4 flex items-center justify-end p-2 flex-col">
@@ -51,6 +78,21 @@ const BoxForm = () => {
       ) : (
         <div></div>
       )}
+      {urlshort == ""
+        ? dato.map((item, index) => {
+            return (
+              <p key={index}>
+                {item.corta} {item.larga}
+              </p>
+            );
+          })
+        : dato.slice(0, -1).map((item, index) => {
+            return (
+              <p key={index}>
+                {item.corta} {item.larga}
+              </p>
+            );
+          })}
     </>
   );
 };

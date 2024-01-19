@@ -4,6 +4,7 @@
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 .boxResult div {
   width: 80%;
@@ -31,4 +32,9 @@
 }
 .show_url_corta:focus {
   outline: none;
+}
+@media screen and (max-width: 768px) {
+  .boxResult {
+    width: 90%;
+  }
 }

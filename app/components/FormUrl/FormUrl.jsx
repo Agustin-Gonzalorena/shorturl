@@ -18,7 +18,6 @@ const FormUrl = ({ setInfo }) => {
         "(\\#[-a-z\\d_]*)?$",
       "i"
     ); // fragmento de la url
-    console.log(pattern.test(url));
     if (!pattern.test(url)) setUrlAccept(null);
     return pattern.test(url);
   };
