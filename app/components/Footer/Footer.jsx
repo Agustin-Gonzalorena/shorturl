@@ -4,7 +4,7 @@ import { FaGithubAlt } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0A7DC8] min-h-24 p-8 box-content flex flex-col items-center text-gray">
+    <footer className="bg-[#0A7DC8] min-h-24 p-8 box-content flex flex-col items-center text-gray text-white">
       <div className="flex justify-center ">
         <a href="/" className="h-14 w-14 bg-gray-700 rounded-full relative">
           <Image src="/favicon.ico" alt="" fill={true} className="p-1" />
@@ -30,7 +30,7 @@ const Footer = () => {
             href="https://github.com/Agustin-Gonzalorena"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold hover:text-white flex items-center gap-1"
+            className="font-bold hover:text-black flex items-center gap-1"
           >
             Agustin Gonzalorena
             <FaGithubAlt />

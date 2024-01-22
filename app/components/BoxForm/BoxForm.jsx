@@ -4,6 +4,7 @@ import styles from "./BoxForm.module.css";
 import FormUrl from "../FormUrl/FormUrl";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { FaRegCopy } from "react-icons/fa";
+import HistoryLink from "../HistoryLink/HistoryLink";
 
 const BoxForm = () => {
   const [info, setInfo] = useState([]);
@@ -78,21 +79,7 @@ const BoxForm = () => {
       ) : (
         <div></div>
       )}
-      {urlshort == ""
-        ? dato.map((item, index) => {
-            return (
-              <p key={index}>
-                {item.corta} {item.larga}
-              </p>
-            );
-          })
-        : dato.slice(0, -1).map((item, index) => {
-            return (
-              <p key={index}>
-                {item.corta} {item.larga}
-              </p>
-            );
-          })}
+      <HistoryLink dato={dato} />
     </>
   );
 };
