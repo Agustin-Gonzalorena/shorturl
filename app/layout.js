@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body className={textFont.className}>
         <Header />
         <main
-          className={`min-w-wh min-h-[80vh] flex flex-col justify-start items-center pt-16 md:pt-[8%] font-extrabold`}
+          className={`min-w-wh flex flex-col justify-start items-center pt-16 md:pt-[8%] font-extrabold`}
         >
           {children}
         </main>

@@ -12,7 +12,7 @@ const Footer = () => {
       </div>
       <div className="text-center mt-5 mb-5 pl-[15%] pr-[15%]">
         <h3 className="font-bold text-xl mb-3">ShortUrl</h3>
-        <p className="text-l">
+        <p className="text-l font-light">
           Este espacio de <strong>acortamiento de URLs</strong> ha sido creado
           con amor y código para propósitos de práctica en programación.
           <strong> Es 100% funcional</strong>, pero ten en cuenta que se
