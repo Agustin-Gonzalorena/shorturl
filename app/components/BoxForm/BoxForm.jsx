@@ -5,11 +5,11 @@ import FormUrl from "../FormUrl/FormUrl";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { FaRegCopy } from "react-icons/fa";
 import HistoryLink from "../HistoryLink/HistoryLink";
+import { CopyAlert } from "../../utils/CopyAlert";
 
 const BoxForm = () => {
   const [info, setInfo] = useState([]);
   const [urlshort, setUrlshort] = useState("");
-  const [texto, setTexto] = useState("");
   const [dato, setDato] = useState([]);
 
   const inputRef = useRef(null);
@@ -70,7 +70,7 @@ const BoxForm = () => {
           <CopyToClipboard text={urlshort}>
             <button
               className="bg-slate-500 flex justify-center items-center text-xl"
-              onClick={() => alert("copiado")}
+              onClick={CopyAlert}
             >
               <FaRegCopy />
             </button>
