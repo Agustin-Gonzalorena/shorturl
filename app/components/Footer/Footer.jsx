@@ -4,10 +4,10 @@ import { FaGithubAlt } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0A7DC8] min-h-24 p-8 box-content flex flex-col items-center text-gray text-white">
+    <footer className="bg-[#149BF5] min-h-24 p-8 box-content flex flex-col items-center text-gray text-black">
       <div className="flex justify-center ">
         <a href="/" className="h-14 w-14 bg-gray-700 rounded-full relative">
-          <Image src="/favicon.ico" alt="" fill={true} className="p-1" />
+          <Image src="/favicon.ico" alt="Inicio" fill={true} className="p-1" />
         </a>
       </div>
       <div className="text-center mt-5 mb-5 pl-[15%] pr-[15%]">

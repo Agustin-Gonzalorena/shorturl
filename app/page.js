@@ -1,9 +1,5 @@
 import BoxForm from "./components/BoxForm/BoxForm";
 
-export const metadata = {
-  title: "Acortador URL- ShortURL",
-};
-
 export default function Home() {
   return (
     <>

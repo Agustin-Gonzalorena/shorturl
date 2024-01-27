@@ -66,7 +66,7 @@ const FormUrl = ({ setInfo }) => {
         />
         {btnDisabled ? (
           <button
-            className={`${styles.btn} bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl hover:text-white flex justify-center items-center`}
+            className={`${styles.btn} bg-[#FF6833] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl hover:text-white flex justify-center items-center`}
             type="Submit"
             disabled
           >
@@ -74,7 +74,7 @@ const FormUrl = ({ setInfo }) => {
           </button>
         ) : (
           <button
-            className={`${styles.btn} bg-[#FF4100] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl hover:text-white text-white`}
+            className={`${styles.btn} bg-[#FF6833] w-1/3 h-full rounded-r-2xl text-xl font-medium md:text-2xl hover:text-white text-black`}
             type="Submit"
           >
             Cortar URL
