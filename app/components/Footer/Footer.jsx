@@ -30,7 +30,7 @@ const Footer = () => {
             href="https://github.com/Agustin-Gonzalorena"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-bold hover:text-black flex items-center gap-1"
+            className="font-bold hover:text-white flex items-center gap-1"
           >
             Agustin Gonzalorena
             <FaGithubAlt />
