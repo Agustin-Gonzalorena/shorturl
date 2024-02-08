@@ -18,7 +18,9 @@ const HistoryLink = ({ dato }) => {
 
   return (
     <div className="bg-[#FF8C64] w-[90%] md:w-2/5 rounded-lg p-3 flex flex-col items-center mb-2">
-      <h2 className="text-2xl mb-3">Link recientes:</h2>
+      <h2 className="text-2xl mb-3" style={{ userSelect: "none" }}>
+        Link recientes:
+      </h2>
       {datos.length == 0 ? (
         <p className="text-xl mb-3 font-thin">No hay recientes.</p>
       ) : (
@@ -28,7 +30,10 @@ const HistoryLink = ({ dato }) => {
               className=" border-b-2 w-full flex justify-between p-2 font-thin"
               key={index}
             >
-              <p className="w-[35%] md:w-[46%] overflow-hidden text-nowrap">
+              <p
+                className="w-[35%] md:w-[46%] overflow-hidden text-nowrap"
+                style={{ userSelect: "none" }}
+              >
                 {item.larga}
               </p>
               <p className="w-[40%] md:w-[30%]">

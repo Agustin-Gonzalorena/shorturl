@@ -9,6 +9,7 @@
   border: none;
   letter-spacing: 1px;
   cursor: pointer;
+  user-select: none;
   -webkit-transition: ease-out 0.4s;
   -moz-transition: ease-out 0.4s;
   transition: ease-out 0.5s;
@@ -24,6 +25,7 @@
 }
 .input {
   background-color: #0a7dc8;
+  user-select: none;
 }
 .input:focus {
   outline: none;

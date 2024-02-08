@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 const Header = () => {
   return (
     <>
-      <div className="contain-curve"></div>
+      <div className="contain-curve"> </div>
       <header
         className={` h-auto p-6  text-4xl flex justify-center md:text-5xl md:pl-10 md:block`}
       >
