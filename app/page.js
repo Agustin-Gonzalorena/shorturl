@@ -1,5 +1,4 @@
 import BoxForm from "./components/BoxForm/BoxForm";
-
 export default function Home() {
   return (
     <>

@@ -10,9 +10,9 @@ import "dotenv/config";
   password: "poiu",
   database: "dbshorturl",
 }; */
-const connectionString = process.env.DATABASE_URL;
+//const connectionString = process.env.DATABASE_URL;
 
-const connection = await mysql.createConnection(connectionString);
+//const connection = await mysql.createConnection(connectionString);
 
 export async function redirectUrl(shorturl) {
   try {

@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { insert } from "../db_mySql";
 import { redirect } from "next/navigation";
 import { validateLink } from "../schemas/linkSchema";
+//import { insert } from "../db_mySql";
+import { insert } from "../db_firebase";
 
 export async function GET(req) {
   //console.log("hola", req.headers.get("x-forwarded-for")); recupera id privada para saber cuantas peticones ha hecho

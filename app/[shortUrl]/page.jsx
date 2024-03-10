@@ -1,10 +1,12 @@
-import { redirectUrl } from "../db_mySql";
 import { TiWarning } from "react-icons/ti";
+//import { redirectUrl } from "../db_mySql";
+import { redirectUrl } from "../db_firebase";
 
 async function page({ params }) {
   const { shortUrl } = params;
-  console.log(shortUrl);
+
   const result = await redirectUrl(shortUrl);
+
   if (!result) {
     return (
       <div className="flex flex-col min-w-64 justify-center items-center gap-2">
@@ -17,6 +19,7 @@ async function page({ params }) {
           </strong>{" "}
           no existe.
         </p>
+
         <a href="/" className="bg-[#FF4100] p-4 rounded-full text-xl mt-5">
           Visitar ShortUrl.ar
         </a>
