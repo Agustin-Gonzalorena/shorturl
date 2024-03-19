@@ -1,3 +1,15 @@
+
+# Acortador url
+
+Proyecto desarrollado con Next.js, Tailwind CSS y Firebase (Antes utilizado planetScale)
+
+El cual consiste en brindar el servicio de acortar urls mediante una web sencilla.
+Luego se aloja en firebase el codigo generado aleatoriamente de 5 caracteres y la url original.
+
+Para luego poder redirigir a la url original cuando se encuentra el codigo.
+
+#
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
