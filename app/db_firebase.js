@@ -6,9 +6,9 @@ import { cryptoRandomStringAsync } from "crypto-random-string";
 export async function redirectUrl(shorturl) {
   try {
     shorturl = shorturl.toLowerCase();
-    const { data } = await getData();
+    const { dataArray } = await getData();
     let url = false;
-    data.forEach((e) => {
+    dataArray.forEach((e) => {
       if (e.code === shorturl) {
         url = e.url;
         return;
@@ -62,7 +62,10 @@ async function getData() {
   const starCountRef = ref(db, `/results/`);
   const snapshot = await get(starCountRef);
   const data = await snapshot.val();
-  return { data, db };
+  //pasar valores de objeto a array
+  const dataArray = Object.values(data);
+
+  return { dataArray, db };
 }
 function generateShortUrl() {
   return cryptoRandomStringAsync({
