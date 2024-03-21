@@ -29,9 +29,9 @@ export async function insert({ url }) {
   try {
     //buscar si existe el shorturl
     let shortUrl = await generateShortUrl();
-    const { data, db } = await getData();
+    const { dataArray, db } = await getData();
     let exits = false;
-    data.forEach((element) => {
+    dataArray.forEach((element) => {
       if (element.code === shortUrl) {
         exits = true;
         return;
@@ -39,7 +39,7 @@ export async function insert({ url }) {
     });
     while (exits) {
       shortUrl = await generateShortUrl();
-      data.forEach((element) => {
+      dataArray.forEach((element) => {
         if (element.code === shortUrl) {
           exits = true;
           return;
@@ -47,7 +47,7 @@ export async function insert({ url }) {
       });
     }
     //insertar
-    set(ref(db, `results/${data.length}`), {
+    set(ref(db, `results/${dataArray.length}`), {
       code: shortUrl,
       url: url,
     });
