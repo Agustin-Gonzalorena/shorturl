@@ -47,7 +47,7 @@ export async function insert({ url }) {
       });
     }
     //insertar
-    set(ref(db, `results/${dataArray.length}`), {
+    set(ref(db, `results/${dataArray.length+1}`), {
       code: shortUrl,
       url: url,
     });
