@@ -1,4 +1,4 @@
-import { ref, get, set, getDatabase } from "firebase/database";
+import { ref, get, set, push, getDatabase } from "firebase/database";
 import { appDb } from "@/firebase.config";
 import { redirect } from "next/navigation";
 import { cryptoRandomStringAsync } from "crypto-random-string";
@@ -29,7 +29,7 @@ export async function insert({ url }) {
   try {
     //buscar si existe el shorturl
     let shortUrl = await generateShortUrl();
-    const { dataArray, db } = await getData();
+    const { dataArray, db, starCountRef } = await getData();
     let exits = false;
     dataArray.forEach((element) => {
       if (element.code === shortUrl) {
@@ -47,10 +47,25 @@ export async function insert({ url }) {
       });
     }
     //insertar
-    set(ref(db, `results/${dataArray.length+1}`), {
+    push(starCountRef, {
       code: shortUrl,
       url: url,
-    });
+    })
+      .then((newRef) => {
+        console.log(
+          "Dato insertado en la última posición del array en Firebase con la clave única:",
+          newRef.key
+        );
+      })
+      .catch((error) => {
+        console.error("Error al insertar el dato en Firebase:", error);
+      });
+    /* dataArray.push({ code: shortUrl, url: url });
+    set(ref(db, `results/`), dataArray); */
+    /* set(ref(db, `results/${dataArray.length + 1}`), {
+      code: shortUrl,
+      url: url,
+    }); */
     return { shortUrl: shortUrl, url: url };
   } catch (error) {
     console.error("Error inserting URL:", error);
@@ -65,7 +80,7 @@ async function getData() {
   //pasar valores de objeto a array
   const dataArray = Object.values(data);
 
-  return { dataArray, db };
+  return { dataArray, db, starCountRef };
 }
 function generateShortUrl() {
   return cryptoRandomStringAsync({
