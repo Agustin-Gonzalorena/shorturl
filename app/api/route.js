@@ -20,6 +20,8 @@ export async function POST(req, res) {
   if (url.startsWith("http://") || url.startsWith("https://")) {
     url = url.replace(/^https?:\/\//, "");
   }
-  const result = await insert({ url: url.toLowerCase() });
+  //const result = await insert({ url: url.toLowerCase() });
+  const result = await insert({ url: url });
+
   return NextResponse.json(result);
 }

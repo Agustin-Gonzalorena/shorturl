@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import styles from "./FormUrl.module.css";
 import { PiWarningCircleBold } from "react-icons/pi";
+import { set } from "firebase/database";
 
 const FormUrl = ({ setInfo }) => {
   const [urlSend, setUrlSend] = useState("");
@@ -9,17 +10,24 @@ const FormUrl = ({ setInfo }) => {
   const [btnDisabled, setBtnDisabled] = useState(false);
 
   const validarURL = (url) => {
-    const pattern = new RegExp(
-      "^(https?:\\/\\/)?" + // protocolo
-        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // nombre de dominio
-        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // puerto y ruta
-        "(\\?[;&a-z\\d%_.~+=-]*)?" + // cadena de consulta
-        "(\\#[-a-z\\d_]*)?$",
-      "i"
-    ); // fragmento de la url
-    if (!pattern.test(url)) setUrlAccept(null);
-    return pattern.test(url);
+    try {
+      if (!url.startsWith("http://") && !url.startsWith("https://")) {
+        url = "http://" + url;
+      }
+      const parsedUrl = new URL(url);
+      // Verificar si el host es un dominio válido
+      const domainPattern = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!domainPattern.test(parsedUrl.hostname)) {
+        setUrlAccept(null);
+        return false;
+      }
+      new URL(url);
+      setUrlAccept(true);
+      return true;
+    } catch (error) {
+      setUrlAccept(null);
+      return false;
+    }
   };
 
   const handleSubmit = async (event) => {
