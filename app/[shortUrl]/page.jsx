@@ -14,14 +14,12 @@ async function page({ params }) {
         <h2 className="text-7xl mb-4">404</h2>
         <p className="text-3xl">
           La direccion{" "}
-          <strong className="font-thin text-[#064E7D]">
-            shorturl.ar/{shortUrl}
-          </strong>{" "}
-          no existe.
+          <strong className="font-thin text-[#064E7D]">/{shortUrl}</strong> no
+          existe.
         </p>
 
-        <a href="/" className="bg-[#FF4100] p-4 rounded-full text-xl mt-5">
-          Visitar ShortUrl.ar
+        <a href="/" className="bg-[#FF4100] p-4 rounded-full text-xl mt-5 mb-5">
+          Visita nuestro sitio.
         </a>
       </div>
     );

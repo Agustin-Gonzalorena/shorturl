@@ -45,7 +45,8 @@ const BoxForm = () => {
     if (info.length == 0) {
       return;
     }
-    setUrlshort("shorturl.ar/" + info.shortUrl);
+    const baseUrl = window.location.origin;
+    setUrlshort(`${baseUrl}/${info.shortUrl}`);
   }, [info]);
 
   return (
