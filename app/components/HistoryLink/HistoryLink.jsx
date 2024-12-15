@@ -17,7 +17,7 @@ const HistoryLink = ({ dato }) => {
   }, [dato]);
 
   return (
-    <div className="bg-[#FF8C64] w-[90%] md:w-2/5 rounded-lg p-3 flex flex-col items-center mb-2">
+    <div className="bg-[#FF8C64] w-[90%] md:w-2/5  rounded-lg p-3 flex flex-col items-center mb-2">
       <h2 className="text-2xl mb-3" style={{ userSelect: "none" }}>
         Link recientes:
       </h2>
@@ -43,7 +43,7 @@ const HistoryLink = ({ dato }) => {
                   rel="noopener noreferrer"
                   className="text-[#064E7D] hover:text-gray-300"
                 >
-                  {item.corta}
+                  /{item.corta.split("/").pop()}
                 </a>
               </p>
               <CopyToClipboard text={item.corta}>

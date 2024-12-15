@@ -46,7 +46,8 @@ const BoxForm = () => {
       return;
     }
     const baseUrl = window.location.origin;
-    setUrlshort(`${baseUrl}/${info.shortUrl}`);
+    const domain = baseUrl.replace(/^https?:\/\//, "");
+    setUrlshort(`${domain}/${info.shortUrl}`);
   }, [info]);
 
   return (
