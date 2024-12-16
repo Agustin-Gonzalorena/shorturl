@@ -12,17 +12,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <meta
-          name="google-adsense-account"
-          content="ca-pub-7048144468201725"
-        ></meta>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7048144468201725"
-          crossorigin="anonymous"
-        ></script>
-      </head>
       <body className={textFont.className}>
         <Header />
         <main
