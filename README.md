@@ -8,7 +8,7 @@ Luego se aloja en firebase el codigo generado aleatoriamente de 5 caracteres y l
 
 Para luego poder redirigir a la url original cuando se encuentra el codigo.
 
-#
+-- 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
